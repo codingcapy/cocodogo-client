@@ -14,14 +14,17 @@ export function Router() {
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route element={<Layout />}>
-                <Route path="/cocodogo-client/" element={<HomePage />} loader={pageLoader} />
-                <Route path="/cocodogo-client/posts" element={<PostsPage />} loader={postsLoader} />
-                <Route path="/cocodogo-client/users/login" element={<LoginPage />} />
-                <Route path="/cocodogo-client/users/signup" element={<SignupPage />} />
+                <Route path="/cocodogo-client/maintenance" element={<HomePage />} loader={pageLoader} />
+                <Route path="/cocodogo-client/maintenance2" element={<PostsPage />} loader={postsLoader} />
+                <Route path="/cocodogo-client/users/maintenance3" element={<LoginPage />} />
+                <Route path="/cocodogo-client/users/maintenance4" element={<SignupPage />} />
                 <Route path="/cocodogo-client/posts/create" element={<CreatePostPage />} />
                 <Route path="/cocodogo-client/posts/:postId" element={<PostDetailsPage />} loader={postDetailsLoader} />
                 <Route path="/cocodogo-client/users/:userId" element={<ProfilePage />} loader={userPostsLoader} />
-                <Route path="/cocodogo-client/maintenance" element={<MaintenancePage />} />
+                <Route path="/cocodogo-client/" element={<MaintenancePage />} />
+                <Route path="/cocodogo-client/posts" element={<MaintenancePage />} />
+                <Route path="/cocodogo-client/users/login" element={<MaintenancePage />} />
+                <Route path="/cocodogo-client/users/signup" element={<MaintenancePage />} />
             </Route>
         )
     )
