@@ -41,7 +41,7 @@ export default function Comment(props) {
         const res = await axios.post(`${DOMAIN}/api/comments/${props.id}`, updatedComment)
         toggleCommentEditMode()
         if (res?.data.success) {
-            navigate(`/posts/${props.postId}`)
+            navigate(`/cocodogo-client/posts/${props.postId}`)
         }
     }
 
@@ -52,7 +52,7 @@ export default function Comment(props) {
         const updatedComment = { content, edited, deleted };
         const res = await axios.post(`${DOMAIN}/api/comments/${props.id}`, updatedComment)
         if (res?.data.success) {
-            navigate(`/posts/${props.postId}`)
+            navigate(`/cocodogo-client/posts/${props.postId}`)
         }
     }
 
@@ -68,7 +68,7 @@ export default function Comment(props) {
         toggleReplyMode()
         if (res?.data.success) {
             e.target.content.value = "";
-            navigate(`/posts/${props.postId}`);
+            navigate(`/cocodogo-client/posts/${props.postId}`);
         }
     }
 
@@ -81,7 +81,7 @@ export default function Comment(props) {
             const vote = { value, postId, commentId, voterId, };
             const res = await axios.post(`${DOMAIN}/api/commentvotes`, vote);
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
         else if (props.commentVotes.filter((commentVote) => commentVote.voterId === currentUserId)[0].value === 0 || props.commentVotes.filter((commentVote) => commentVote.voterId === currentUserId)[0].value === -1) {
@@ -90,7 +90,7 @@ export default function Comment(props) {
             const updatedVote = { value }
             const res = await axios.post(`${DOMAIN}/api/commentvotes/${commentVoteId}`, updatedVote)
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
     }
@@ -101,7 +101,7 @@ export default function Comment(props) {
         const updatedVote = { value }
         const res = await axios.post(`${DOMAIN}/api/commentvotes/${commentVoteId}`, updatedVote)
         if (res?.data.success) {
-            navigate(`/posts/${props.postId}`);
+            navigate(`/cocodogo-client/posts/${props.postId}`);
         }
     }
 
@@ -114,7 +114,7 @@ export default function Comment(props) {
             const vote = { value, postId, commentId, voterId, };
             const res = await axios.post(`${DOMAIN}/api/commentvotes`, vote);
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
         else if (props.commentVotes.filter((commentVote) => commentVote.voterId === currentUserId)[0].value === 0 || props.commentVotes.filter((commentVote) => commentVote.voterId === currentUserId)[0].value === 1) {
@@ -123,7 +123,7 @@ export default function Comment(props) {
             const updatedVote = { value }
             const res = await axios.post(`${DOMAIN}/api/commentvotes/${commentVoteId}`, updatedVote)
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
     }

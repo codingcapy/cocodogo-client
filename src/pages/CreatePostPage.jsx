@@ -29,7 +29,7 @@ export default function CreatePostPage() {
         const newPost = { title, content, username, userId }
         const res = await axios.post(`${DOMAIN}/api/posts`, newPost)
         if (res?.data.success) {
-            navigate("/")
+            navigate("/cocodogo-client")
         }
     }
 

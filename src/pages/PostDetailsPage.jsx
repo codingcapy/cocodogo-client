@@ -41,7 +41,7 @@ export default function PostDetailsPage() {
         if (res?.data.success) {
             e.target.title.value = "";
             e.target.content.value = "";
-            navigate(`/posts/${data.post.postId}`);
+            navigate(`/cocodogo-client/posts/${data.post.postId}`);
         }
     }
 
@@ -53,7 +53,7 @@ export default function PostDetailsPage() {
         const updatedPost = { title, content, edited, deleted };
         const res = await axios.post(`${DOMAIN}/api/posts/${data.post.postId}`, updatedPost);
         if (res?.data.success) {
-            navigate(`/posts/${data.post.postId}`);
+            navigate(`/cocodogo-client/posts/${data.post.postId}`);
         }
     }
 
@@ -67,7 +67,7 @@ export default function PostDetailsPage() {
         const res = await axios.post(`${DOMAIN}/api/comments`, newComment);
         if (res?.data.success) {
             e.target.content.value = "";
-            navigate(`/posts/${data.post.postId}`);
+            navigate(`/cocodogo-client/posts/${data.post.postId}`);
         }
     }
 
@@ -79,7 +79,7 @@ export default function PostDetailsPage() {
             const vote = { value, postId, voterId };
             const res = await axios.post(`${DOMAIN}/api/postvotes`, vote);
             if (res?.data.success) {
-                navigate(`/posts/${data.post.postId}`);
+                navigate(`/cocodogo-client/posts/${data.post.postId}`);
             }
         }
         else if (data.postVotes.filter((postVote) => postVote.voterId === currentUserId)[0].value === 0 || data.postVotes.filter((postVote) => postVote.voterId === parseInt(userId))[0].value === -1) {
@@ -88,7 +88,7 @@ export default function PostDetailsPage() {
             const updatedVote = { value }
             const res = await axios.post(`${DOMAIN}/api/postvotes/${postVoteId}`, updatedVote)
             if (res?.data.success) {
-                navigate(`/posts/${data.post.postId}`);
+                navigate(`/cocodogo-client/posts/${data.post.postId}`);
             }
         }
     }
@@ -99,7 +99,7 @@ export default function PostDetailsPage() {
         const updatedVote = { value }
         const res = await axios.post(`${DOMAIN}/api/postvotes/${postVoteId}`, updatedVote)
         if (res?.data.success) {
-            navigate(`/posts/${data.post.postId}`);
+            navigate(`/cocodogo-client/posts/${data.post.postId}`);
         }
     }
 
@@ -111,7 +111,7 @@ export default function PostDetailsPage() {
             const vote = { value, postId, voterId };
             const res = await axios.post(`${DOMAIN}/api/postvotes`, vote);
             if (res?.data.success) {
-                navigate(`/posts/${data.post.postId}`);
+                navigate(`/cocodogo-client/posts/${data.post.postId}`);
             }
         }
         else if (data.postVotes.filter((postVote) => postVote.voterId === currentUserId)[0].value === 0 || data.postVotes.filter((postVote) => postVote.voterId === parseInt(currentUserId))[0].value === 1) {
@@ -120,7 +120,7 @@ export default function PostDetailsPage() {
             const updatedVote = { value }
             const res = await axios.post(`${DOMAIN}/api/postvotes/${postVoteId}`, updatedVote)
             if (res?.data.success) {
-                navigate(`/posts/${data.post.postId}`);
+                navigate(`/cocodogo-client/cocodogo-client/posts/${data.post.postId}`);
             }
         }
     }
@@ -153,14 +153,14 @@ export default function PostDetailsPage() {
                             ? user && <div onClick={neutralVote} className=""><TbArrowBigUpFilled size={25} /></div>
                             : user && <div onClick={clickUpvote} className=""><TbArrowBigUp size={25} /></div>
                         : <TbArrowBigUp size={25} />}
-                    {!user && <Link to={"/users/login"}><TbArrowBigUp size={25} /></Link>}
+                    {!user && <Link to={"/cocodogo-client/users/login"}><TbArrowBigUp size={25} /></Link>}
                     <p className="px-2"> {data.postVotes.reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                     {user?.username !== data.post.username
                         ? data.postVotes.find((postVote) => postVote.voterId === currentUserId) !== undefined && data.postVotes.find((postVote) => postVote.voterId === currentUserId).value < 0
                             ? user && <div onClick={neutralVote} className=""><TbArrowBigDownFilled size={25} /></div>
                             : user && <div onClick={clickDownVote} className=""><TbArrowBigDown size={25} /></div>
                         : <TbArrowBigDown size={25} />}
-                    {!user && <Link to={"/users/login"}><TbArrowBigDown size={25} /></Link>}
+                    {!user && <Link to={"/cocodogo-client/users/login"}><TbArrowBigDown size={25} /></Link>}
                     <p className="py-3">{data.post.content}</p>
                     {data.post.deleted ? "" : user?.username === data.post.username && <button onClick={toggleEditMode} className="px-3 py-3 font-bold">Edit</button>}
                     {data.post.deleted ? "" : user?.username === data.post.username && <button onClick={handleDeletePost} className="px-3 font-bold">Delete</button>}

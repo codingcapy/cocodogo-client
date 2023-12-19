@@ -40,7 +40,7 @@ export default function Reply(props) {
         const res = await axios.post(`${DOMAIN}/api/replies/${props.id}`, updatedReply)
         toggleReplyEditMode()
         if (res?.data.success) {
-            navigate(`/posts/${props.postId}`)
+            navigate(`/cocodogo-client/posts/${props.postId}`)
         }
     }
 
@@ -51,7 +51,7 @@ export default function Reply(props) {
         const updatedReply = { content, edited, deleted };
         const res = await axios.post(`${DOMAIN}/api/replies/${props.id}`, updatedReply)
         if (res?.data.success) {
-            navigate(`/posts/${props.postId}`)
+            navigate(`/cocodogo-client/posts/${props.postId}`)
         }
     }
 
@@ -67,7 +67,7 @@ export default function Reply(props) {
         toggleReplyMode()
         if (res?.data.success) {
             e.target.content.value = "";
-            navigate(`/posts/${props.postId}`);
+            navigate(`/cocodogo-client/posts/${props.postId}`);
         }
     }
 
@@ -81,7 +81,7 @@ export default function Reply(props) {
             const vote = { value, postId, commentId, replyId, voterId, };
             const res = await axios.post(`${DOMAIN}/api/replyvotes`, vote);
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
         else if (props.replyVotes.filter((replyVote) => replyVote.voterId === currentUserId)[0].value === 0 || props.replyVotes.filter((replyVote) => replyVote.voterId === currentUserId)[0].value === -1) {
@@ -90,7 +90,7 @@ export default function Reply(props) {
             const updatedVote = { value }
             const res = await axios.post(`${DOMAIN}/api/replyvotes/${replyVoteId}`, updatedVote)
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
     }
@@ -101,7 +101,7 @@ export default function Reply(props) {
         const updatedVote = { value }
         const res = await axios.post(`${DOMAIN}/api/replyvotes/${replyVoteId}`, updatedVote)
         if (res?.data.success) {
-            navigate(`/posts/${props.postId}`);
+            navigate(`/cocodogo-client/posts/${props.postId}`);
         }
     }
 
@@ -115,7 +115,7 @@ export default function Reply(props) {
             const vote = { value, postId, commentId, replyId, voterId, };
             const res = await axios.post(`${DOMAIN}/api/replyvotes`, vote);
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
         else if (props.replyVotes.filter((replyVote) => replyVote.voterId === currentUserId)[0].value === 0 || props.replyVotes.filter((replyVote) => replyVote.voterId === currentUserId)[0].value === 1) {
@@ -124,7 +124,7 @@ export default function Reply(props) {
             const updatedVote = { value }
             const res = await axios.post(`${DOMAIN}/api/replyvotes/${replyVoteId}`, updatedVote)
             if (res?.data.success) {
-                navigate(`/posts/${props.postId}`);
+                navigate(`/cocodogo-client/posts/${props.postId}`);
             }
         }
     }

@@ -19,7 +19,7 @@ export default function HomePage() {
     const [sortState, setSortState] = useState(
         data.posts.map((post) =>
             <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3">
-                <Link to={`/posts/${post.postId}`} className="flex flex-col text-center">
+                <Link to={`/cocodogo-client/posts/${post.postId}`} className="flex flex-col text-center">
                     <p className="py-2">Posted by <strong>{post.username}</strong> on {post.date.toLocaleString()}</p>
                     <p >upvotes: {data.postVotes.filter((postVote) => postVote.postId === post.postId).reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                     <h3 className="py-3 text-2xl text-slate-700 font-medium">{post.title}</h3>
@@ -34,7 +34,7 @@ export default function HomePage() {
             data.posts.map((post) =>
                 content !== ""
                     ? post.title.toLowerCase().includes(content.toLowerCase()) || post.content.toLowerCase().includes(content.toLowerCase())
-                        ? <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3"><Link to={`/posts/${post.postId}`} className="flex flex-col text-center">
+                        ? <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3"><Link to={`/cocodogo-client/posts/${post.postId}`} className="flex flex-col text-center">
                             <p className="py-2">Posted by <strong>{post.username}</strong> on {post.date.toLocaleString()}</p>
                             <p >upvotes: {data.postVotes.filter((postVote) => postVote.postId === post.postId).reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                             <h3 className="py-3 text-2xl text-slate-700 font-medium">{post.title}</h3>
@@ -44,7 +44,7 @@ export default function HomePage() {
                         </div>
                         : ""
                     : <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3">
-                        <Link to={`/posts/${post.postId}`} className="flex flex-col text-center">
+                        <Link to={`/cocodogo-client/posts/${post.postId}`} className="flex flex-col text-center">
                             <p className="py-2">Posted by <strong>{post.username}</strong> on {post.date.toLocaleString()}</p>
                             <p >upvotes: {data.postVotes.filter((postVote) => postVote.postId === post.postId).reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                             <h3 className="py-3 text-2xl text-slate-700 font-medium">{post.title}</h3>
@@ -64,7 +64,7 @@ export default function HomePage() {
         setSortState(
             data.posts.map((post) =>
                 <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3">
-                    <Link to={`posts/${post.postId}`} className="flex flex-col text-center">
+                    <Link to={`/cocodogo-client/posts/${post.postId}`} className="flex flex-col text-center">
                         <p className="py-2">Posted by <strong>{post.username}</strong> on {post.date.toLocaleString()}</p>
                         <p >upvotes: {data.postVotes.filter((postVote) => postVote.postId === post.postId).reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                         <h3 className="py-3 text-2xl text-slate-700 font-medium">{post.title}</h3>
@@ -84,7 +84,7 @@ export default function HomePage() {
         setSortState(
             data.posts.map((post) =>
                 <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3" >
-                    <Link to={`posts/${post.postId}`} className="flex flex-col text-center">
+                    <Link to={`/cocodogo-client/posts/${post.postId}`} className="flex flex-col text-center">
                         <p className="py-2">Posted by <strong>{post.username}</strong> on {post.date.toLocaleString()}</p>
                         <p >upvotes: {data.postVotes.filter((postVote) => postVote.postId === post.postId).reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                         <h3 className="py-3 text-2xl text-slate-700 font-medium">{post.title}</h3>
@@ -104,7 +104,7 @@ export default function HomePage() {
         setSortState(
             data.posts.map((post) =>
                 <div key={post.postId} className="border border-slate-700 rounded-xl px-3 py-3">
-                    <Link to={`/posts/${post.postId}`} className="flex flex-col text-center">
+                    <Link to={`/cocodogo-client/posts/${post.postId}`} className="flex flex-col text-center">
                         <p className="py-2">Posted by <strong>{post.username}</strong> on {post.date.toLocaleString()}</p>
                         <p >upvotes: {data.postVotes.filter((postVote) => postVote.postId === post.postId).reduce((accumulator, currentValue) => accumulator + currentValue.value, 0)}</p>
                         <h3 className="py-3 text-2xl text-slate-700 font-medium">{post.title}</h3>
