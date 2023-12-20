@@ -43,7 +43,7 @@ export default function Header() {
                 {!user && <NavLink to="/cocodogo-client/users/login" className="text-center py-2 md:py-4 px-5" onClick={() => setExpandedMenu(window.innerWidth < 500 ? false : true)}>Login</NavLink>}
                 {!user && <NavLink to="/cocodogo-client/users/signup" className="text-center py-2 md:py-4 px-5" onClick={() => setExpandedMenu(window.innerWidth < 500 ? false : true)}>Signup</NavLink>}
                 {user && <NavLink to={`/cocodogo-client/users/${userId}`} className="text-center py-2 md:py-4 px-5" onClick={() => setExpandedMenu(window.innerWidth < 500 ? false : true)}>{user.username}</NavLink>}
-                {user && <NavLink to="/" onClick={logoutService} className="text-center py-2 md:py-4 px-5">Logout</NavLink>}
+                {user && <NavLink to="/cocodogo-client" onClick={logoutService} className="text-center py-2 md:py-4 px-5">Logout</NavLink>}
             </div>}
             {expandedMenu && <div onClick={toggleMenu} className="text-center py-2 md:py-4 text-2xl md:hidden">&#127828;</div>}
             <div className="flex justify-between md:hidden">
