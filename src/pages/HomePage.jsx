@@ -122,6 +122,7 @@ export default function HomePage() {
             <div className="md:grid md:gap-4 md:grid-cols-3">
                 {sortState}
             </div>
+            <div className="py-3">Page: {data.pages.map((page) => <button key={page} className="px-3 font-bold">{page}</button>)}</div>
         </div>
 
     )
